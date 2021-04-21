@@ -4,8 +4,9 @@ import java.util.Objects;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import enums.ConfigProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import utils.ReadPropertyFile;
+import utils.PropertyFileUtils;
 
 public final class Driver {
 
@@ -19,7 +20,7 @@ public final class Driver {
 		if (Objects.isNull(DriverManager.getDriver())) {
 			WebDriverManager.chromedriver().setup();
 			DriverManager.setDriver(new ChromeDriver());
-			DriverManager.getDriver().get(ReadPropertyFile.getValue("URL"));
+			DriverManager.getDriver().get(PropertyFileUtils.getValue(ConfigProperties.URL));
 		}
 
 	}

@@ -1,15 +1,17 @@
 package utils;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
 
-public final class ReadPropertyFile {
+import constants.FrameworkConstants;
+import enums.ConfigProperties;
 
-	private ReadPropertyFile() {
+public final class PropertyFileUtils {
+
+	private PropertyFileUtils() {
 
 	}
 
@@ -18,7 +20,7 @@ public final class ReadPropertyFile {
 
 	static {
 		try {
-			file = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config/config.properties");
+			file = new FileInputStream(FrameworkConstants.getConfigfilepath());
 			properties = new Properties();
 			properties.load(file);
 		} catch (FileNotFoundException e) {
@@ -31,16 +33,17 @@ public final class ReadPropertyFile {
 
 	}
 
-	public static String getValue(String key) throws Exception {
-		if (Objects.isNull(properties.getProperty(key)) || Objects.isNull(key))
+	public static String getValue(ConfigProperties key) throws Exception {
+		if (Objects.isNull(properties.getProperty(key.name().toUpperCase())) || Objects.isNull(key))
 			throw new Exception("The key: " + key + "is not present in the config.properties file");
-		return properties.getProperty(key);
+		return properties.getProperty(key.name().toUpperCase());
 	}
-	
-	public static Object setValue(String key, String value) throws Exception {
+
+	public static Object setValue(ConfigProperties key, String value) throws Exception {
 		if (Objects.isNull(key))
 			throw new Exception("The key: " + key + "is null");
-		return properties.setProperty(key, value);
+		return properties.setProperty(key.name().toUpperCase(), value);
+
 	}
 
 }
