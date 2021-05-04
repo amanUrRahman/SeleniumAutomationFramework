@@ -11,27 +11,27 @@ public final class LoginPage extends BasePage {
 	private final By ButtonNewAccount = By.name("login");
 
 	public LoginPage enterUsername(String name) {
-		sendKeys(textBoxUername, name);
+		sendKeys(textBoxUername, name, "Username");
 		return this;
 	}
 
 	public LoginPage enterPassword(String pass) {
-		sendKeys(testBoxPassword, pass);
+		sendKeys(testBoxPassword, pass, "Password");
 		return this;
 	}
 
 	public HomePage clickLogin() {
-		click(ButtonLogin);
+		click(ButtonLogin, "Login Button");
 		return new HomePage();
 	}
-	
+
 	public ForgottenPasswordPage clickForgottenPassword() {
-		click(LinkForgottenPassword);
+		click(LinkForgottenPassword, "Forgotten Password Link");
 		return new ForgottenPasswordPage();
 	}
-	
+
 	public void clickCreateNewAccount() {
-		click(ButtonNewAccount);
+		click(ButtonNewAccount, "Create New Account Button");
 	}
 
 }

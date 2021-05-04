@@ -1,9 +1,10 @@
 package tests;
 
-import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import driver.DriverManager;
+import pages.LoginPage;
+import reports.ExtentLogger;
 
 public final class LoginTest extends BaseTest {
 
@@ -14,10 +15,16 @@ public final class LoginTest extends BaseTest {
 
 	@Test
 	public void test1() throws InterruptedException {
-		DriverManager.getDriver().findElement(By.name("q")).sendKeys("Aman");
-		DriverManager.getDriver().findElement(By.name("q")).submit();
-		Thread.sleep(2000);
-
+		
+		LoginPage lp = new LoginPage();
+		lp.enterUsername("Aman").enterPassword("Aman123").clickLogin();
+		
 	}
 
+	@Test
+	public void test2() throws InterruptedException {
+		
+		LoginPage lp = new LoginPage();
+		lp.enterUsername("Saba").enterPassword("Saba123").clickLogin();
+	}
 }
