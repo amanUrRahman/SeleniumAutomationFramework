@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="232908" started-at="2021-05-05T07:37:48Z" finished-at="2021-05-05T07:41:41Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="232908" started-at="2021-05-05T07:37:48Z" finished-at="2021-05-05T07:41:41Z">
+      <class name="tests.LoginTest">
+        <test-method status="PASS" signature="setUp(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest@3835c46]" name="setUp" is-config="true" duration-ms="4699" started-at="2021-05-05T07:41:30Z" finished-at="2021-05-05T07:41:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.LoginTest.test1() throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:tests.LoginTest@3835c46]" name="test1" duration-ms="552" started-at="2021-05-05T07:41:35Z" description="To check whether Test1 is executable" finished-at="2021-05-05T07:41:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.LoginTest@3835c46]" name="tearDown" is-config="true" duration-ms="835" started-at="2021-05-05T07:41:35Z" finished-at="2021-05-05T07:41:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp(java.lang.reflect.Method)[pri:0, instance:tests.LoginTest@3835c46]" name="setUp" is-config="true" duration-ms="3529" started-at="2021-05-05T07:41:36Z" finished-at="2021-05-05T07:41:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.LoginTest.test2() throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:tests.LoginTest@3835c46]" name="test2" duration-ms="432" started-at="2021-05-05T07:41:40Z" description="To check whether Test2 is executable" finished-at="2021-05-05T07:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.LoginTest@3835c46]" name="tearDown" is-config="true" duration-ms="803" started-at="2021-05-05T07:41:40Z" finished-at="2021-05-05T07:41:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.LoginTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
