@@ -1,7 +1,5 @@
 package listeners;
 
-import java.io.IOException;
-
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
@@ -15,12 +13,7 @@ public class TestListener implements ITestListener, ISuiteListener {
 
 	@Override
 	public void onStart(ISuite suite) {
-		try {
-			ExtentReport.initReports();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+		ExtentReport.initReports();
 	}
 
 	@Override
@@ -43,8 +36,6 @@ public class TestListener implements ITestListener, ISuiteListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		ExtentLogger.fail(result.getMethod().getMethodName() + "is failed");
-		ExtentLogger.fail(result.getThrowable().toString());
-
 	}
 
 	@Override

@@ -1,10 +1,10 @@
 package tests;
 
-import org.testng.Assert;
+import java.util.Map;
+
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
-import reports.ExtentLogger;
 
 public final class LoginTest extends BaseTest {
 
@@ -14,17 +14,17 @@ public final class LoginTest extends BaseTest {
 	}
 
 	@Test
-	public void test1() throws InterruptedException {
+	public void test1(Map<String, String> data) throws InterruptedException {
 		
 		LoginPage lp = new LoginPage();
-		lp.enterUsername("Aman").enterPassword("Aman123").clickLogin();
+		lp.enterUsername(data.get("Username")).enterPassword(data.get("Password")).clickLogin();
 		
 	}
 
 	@Test
-	public void test2() throws InterruptedException {
+	public void test2(Map<String, String> data) throws InterruptedException {
 		
 		LoginPage lp = new LoginPage();
-		lp.enterUsername("Saba").enterPassword("Saba123").clickLogin();
+		lp.enterUsername("Adnan").enterPassword("Adnan123").clickLogin();
 	}
 }

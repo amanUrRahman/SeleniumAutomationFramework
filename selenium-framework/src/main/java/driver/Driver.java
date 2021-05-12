@@ -2,9 +2,8 @@ package driver;
 
 import java.util.Objects;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import enums.ConfigProperties;
+import factories.DriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.PropertyFileUtils;
 
@@ -15,11 +14,11 @@ public final class Driver {
 		// avoid creating objects for this class
 	}
 
-	public static void initDriver() throws Exception {
+	public static void initDriver() {
 
 		if (Objects.isNull(DriverManager.getDriver())) {
 			WebDriverManager.chromedriver().setup();
-			DriverManager.setDriver(new ChromeDriver());
+			DriverManager.setDriver(DriverFactory.getDriver());
 			DriverManager.getDriver().get(PropertyFileUtils.getValue(ConfigProperties.URL));
 		}
 

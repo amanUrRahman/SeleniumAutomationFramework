@@ -9,20 +9,21 @@ import constants.FrameworkConstants;
 import driver.DriverManager;
 import enums.WaitStrategy;
 
-public class ExplicitlyWaitFactory {
+public final class ExplicitlyWaitFactory {
+
+	private ExplicitlyWaitFactory() {
+	}
 
 	public static WebElement performExplicitWait(By by, WaitStrategy wait) {
 		WebElement element = null;
+		WebDriverWait explicitWait = new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.getExplicitwait());
 		switch (wait) {
 		case CLICKABLE:
-			element = new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.getExplicitwait())
-					.until(ExpectedConditions.elementToBeClickable(by));
+			element = explicitWait.until(ExpectedConditions.elementToBeClickable(by));
 		case PRESENCE:
-			element = new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.getExplicitwait())
-					.until(ExpectedConditions.presenceOfElementLocated(by));
+			element = explicitWait.until(ExpectedConditions.presenceOfElementLocated(by));
 		case VISIBLE:
-			element = new WebDriverWait(DriverManager.getDriver(), FrameworkConstants.getExplicitwait())
-					.until(ExpectedConditions.visibilityOfElementLocated(by));
+			element = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		case NONE:
 			element = DriverManager.getDriver().findElement(by);
 		}

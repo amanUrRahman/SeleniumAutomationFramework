@@ -15,8 +15,10 @@ public final class FrameworkConstants {
 	private static final String CONFIGFILEPATH = RESOURCEPATH + "config/config.properties";
 	private static final String REPORTFILEPATH = RESOURCEPATH + "extent-test-output";
 	private static final long EXPLICITWAIT = 10;
+	private static final String TESTDATA = "TestData";
+	private static final String RUNMANAGER = "RunManager";
 
-	public static String getReportfilepath() throws Exception {
+	public static String getReportfilepath() {
 		if (PropertyFileUtils.getValue(ConfigProperties.OVERRIDEREPORTS).equalsIgnoreCase("yes")) {
 			return REPORTFILEPATH + "/" + System.currentTimeMillis() + "_TestResults.html";
 		} else {
@@ -35,6 +37,16 @@ public final class FrameworkConstants {
 	public static String getExcelpath() {
 		return EXCELFILEPATH;
 	}
+
+	public static String getTestdata() {
+		return TESTDATA;
+	}
+
+	public static String getRunmanager() {
+		return RUNMANAGER;
+	}
+	
+	
 
 
 }

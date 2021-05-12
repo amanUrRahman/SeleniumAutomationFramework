@@ -16,7 +16,7 @@ public final class ExtentReport {
 
 	private static ExtentReports extentReport;
 
-	public static void initReports() throws Exception {
+	public static void initReports() {
 		if (Objects.isNull(extentReport)) {
 			extentReport = new ExtentReports();
 			ExtentSparkReporter spark = new ExtentSparkReporter(FrameworkConstants.getReportfilepath());
@@ -30,6 +30,7 @@ public final class ExtentReport {
 	public static void flushReports() {
 		if (Objects.nonNull(extentReport)) {
 			extentReport.flush();
+			ExtentManager.removeExtentTest();
 		}
 	}
 

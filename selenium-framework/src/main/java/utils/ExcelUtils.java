@@ -2,7 +2,6 @@ package utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +21,6 @@ public final class ExcelUtils {
 	private static FileInputStream file;
 	private static XSSFWorkbook workbook;
 	private static XSSFSheet sheet;
-	private static final String sheetRunManager = "RunManager";
 
 	static {
 
@@ -31,14 +29,15 @@ public final class ExcelUtils {
 			workbook = new XSSFWorkbook(file);
 		} catch (IOException e) {
 			e.printStackTrace();
+			System.exit(0);
 		}
 	}
 
-	public static List<Map<String, String>> getTestMethodDetails() {
+	public static List<Map<String, String>> getTestDetails(String SheetName) {
 		int lastRowNum, lastColNum;
 		List<Map<String, String>> excelMappedInList = new ArrayList<>();
 		Map<String, String> excelEntries = null;
-		sheet = workbook.getSheet(sheetRunManager);
+		sheet = workbook.getSheet(SheetName);
 		lastRowNum = sheet.getLastRowNum();
 		lastColNum = sheet.getRow(0).getLastCellNum();
 
@@ -52,7 +51,7 @@ public final class ExcelUtils {
 					value = sheet.getRow(i).getCell(j).getStringCellValue();
 					break;
 				case NUMERIC:
-					value = String.valueOf(sheet.getRow(i).getCell(j).getNumericCellValue());
+					value = String.valueOf(String.valueOf(sheet.getRow(i).getCell(j).getNumericCellValue()).split(".0")[0]);
 					break;
 				case BOOLEAN:
 					value = String.valueOf(sheet.getRow(i).getCell(j).getBooleanCellValue());

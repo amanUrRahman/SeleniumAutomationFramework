@@ -4,10 +4,10 @@
 	<listeners>
 		<listener class-name="listeners.TestListener" />
 		<listener class-name="listeners.MethodListener" />
+		<listener class-name="listener.AnnotationListener" />
 	</listeners>
 
 	<test name="Test">
-
 		<classes>
 			<class name="tests.LoginTest">
 			</class>
